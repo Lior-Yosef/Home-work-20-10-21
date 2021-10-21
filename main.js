@@ -19,15 +19,18 @@ class Car {
         return `${this.numberWheels}+${this.engineCapacity}+${this.color}`
     }
 
-    static showBigeerEngine(array) {
+// ! 3 
+
+    static showBigeerEngine(CarsArray) {
         let maxEngine = carArray[0]
-        for (const items of array) {
-            if (items.engineCapacity > maxEngine.engineCapacity) {
-                maxEngine = items
-            }
+        for (const items of CarsArray) {
+            if (items.engineCapacity > maxEngine.engineCapacity) maxEngine = items;
         }
         return maxEngine
     }
+
+// ! 3 
+
 
 }
 
@@ -45,19 +48,23 @@ class Mercedes extends Car {
     }
 
     // ! 2
-    showThisfun() {
-        return this.returnExtends().toUpperCase()
-    }
+   getMercedesNameUpperCase(){
+       return this.constructor.name.toUpperCase()
+   }
+
+   get nameUpperCase(){
+       return this.getMercedesNameUpperCase()
+   }
     // ! 2
 
 }
 
-let car2 = new Mercedes(2, 4, "black");
+let car2 = new Mercedes(2, 3500, "black");
 
 console.log(car2.returnExtends());
 
 // ! 2
-console.log(car2.showThisfun());
+console.log(car2.nameUpperCase); //! הפעלה של פנוקציית get
 // ! 2
 
 
@@ -83,7 +90,7 @@ class Tesla extends Car {
     }
 }
 
-let car4 = new Tesla(4, 2500, "white");
+let car4 = new Tesla(4, 1600, "white");
 console.log(car4.returnExtends());
 
 // ! 3 
